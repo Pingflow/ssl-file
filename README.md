@@ -1,4 +1,4 @@
-![SSL](icon-ssl.png)
+![SSL](https://github.com/Pingflow/ssl-file/raw/master/icon-ssl.png)
 
 _Create ssl files from variables and share_
 
