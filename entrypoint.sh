@@ -38,7 +38,7 @@ log()
 
 }
 
-ssl()
+create_ssl()
 {
     if [ ! -z "$2" ];
     then
@@ -56,15 +56,33 @@ ssl()
     fi
 }
 
+symlink_ssl()
+{
+    if [ ! -z "$2" ]
+    then
+        if [ -f "$SSL_PATH/$1" ]
+        then
+            ln -s "$SSL_PATH/$1" "$SSL_PATH/$2"
+        fi
+    fi
+}
+
+ssl()
+{
+    create_ssl "$SSL_CRT_NAME" "$SSL_CRT"
+    create_ssl "$SSL_KEY_NAME" "$SSL_KEY"
+    create_ssl "$SSL_CA_NAME" "$SSL_CA"
+    symlink_ssl "$SSL_CRT_NAME" "$SSL_CRT_NAME_OTHER"
+    symlink_ssl "$SSL_KEY_NAME" "$SSL_KEY_NAME_OTHER"
+}
+
 # Menu
 
 case "$1" in
 
 "init")
     echo -e "\e[34m[$(date)] Initialization\e[39m"
-    ssl "$SSL_CRT_NAME" "$SSL_CRT"
-    ssl "$SSL_KEY_NAME" "$SSL_KEY"
-    ssl "$SSL_CA_NAME" "$SSL_CA"
+    ssl
     echo -e "\e[34m[$(date)] End\e[39m"
     ;;
 
