@@ -48,6 +48,10 @@ Variables
 - __Description__: Name of certificate
 - __Default__ : `ssl.crt`
 
+`SSL_CRT_NAME_OTHER` *[Optional]*
+- __Description__: Other name of certificate
+- __Default__ : none
+
 `SSL_CRT` *[Required]*
 - __Description__: Value of certificate file
 - __Default__ : none
@@ -55,6 +59,10 @@ Variables
 `SSL_KEY_NAME` *[Optional]*
 - __Description__: Name of private key
 - __Default__ : `ssl.key`
+
+`SSL_KEY_NAME_OTHER` *[Optional]*
+- __Description__: Other name of private key
+- __Default__ : none
 
 `SSL_KEY` *[Required]*
 - __Description__: Value of private key file
