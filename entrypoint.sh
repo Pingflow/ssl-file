@@ -63,6 +63,7 @@ symlink_ssl()
         if [ -f "$SSL_PATH/$1" ]
         then
             ln -s "$SSL_PATH/$1" "$SSL_PATH/$2"
+            log "$?" "Create $SSL_PATH/$2"
         fi
     fi
 }
